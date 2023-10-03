@@ -1,4 +1,5 @@
 #!/bin/bash
+
 myupdate () 
 {
 sudo apt update
