@@ -1,11 +1,15 @@
 #!/bin/bash
+sed '1d' Shell_Userlist.csv > temp_file.csv
+
 while IFS=, read -r id prenom nom mdp role; do
-id=${id:0:(${#id}-1)}
-prenom=${prenom:0:(${#prenom}-1)}
-nom=${nom:0:(${#nom}-1)}
-mdp=${mdp:0:(${#mdp}-1)}
 role=${role:0:(${#role}-1)}
+username=$(echo "$prenom $nom")
+sudo useradd "$username" --badname --uid "$id"
+echo "$username:$mdp" | sudo chpasswd
+if [ "$role" = "Admin" ]
+then
+sudo usermod -aG sudo "$username"
+fi
+done < temp_file.csv
 
-
-echo "$role"
-done < Shell_Userlist.csv
+rm temp_file.csvcd 
