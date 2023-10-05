@@ -8,11 +8,11 @@ elif [ "$2" = "-" ]
 then
 resultat=$(($1 - $3))
 operation="soustraction"
-elif [ "$2" = "x" ]
+elif [ "$2" = "x" ] || [ "$2" = "*" ]
 then
 resultat=$(($1 * $3))
 operation="multiplication"
-elif [ "$2" = "%" ]
+elif [ "$2" = "%" ] || [ "$2" = "/" ]
 then
 if [ $3 -ne 0 ]
 then
