@@ -10,5 +10,4 @@ nom_fichier="/home/oroitz/Documents/shell-exe/Job08/number_connection-$date_actu
 
 echo "$nombre_connexions" > "$nom_fichier"
 tar -cvf /home/oroitz/Documents/shell-exe/Job08/Backup/$fin_fichier.tar $nom_fichier
-
-sudo rm $nom_fichier
+# rm $nom_fichier
